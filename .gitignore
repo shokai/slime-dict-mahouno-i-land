@@ -1,0 +1,11 @@
+.DS_Store
+*.lock
+*.tmp
+~*
+config.yaml
+*.zip
+*.csv
+*.txt
+*.png
+*.jpg
+*.gif
