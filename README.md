@@ -16,3 +16,16 @@ slime-dict-mahouno-i-land
 
     % cat book_url.txt | ruby -Ku download_books.rb
 
+dataディレクトリが作成され、中に保存されます
+
+## 辞書を作成する
+
+    % cat data/http* | nkf -u | ruby -Ku make_dict.rb > raw-dict.txt
+    % cat raw-dict.txt | sort | uniq -c | sort -r -n | awk '{print $2 " " $3 " " $4}' > mahouno-i-land-dict.txt
+
+頻出順に並んだ辞書が生成される
+
+
+## 名詞のみの辞書を作る例
+
+    % cat mahouno-i-land-dict.txt | grep "\[名詞\]" > mahouno-i-land-dict-noun.txt
