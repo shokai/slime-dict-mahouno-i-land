@@ -4,6 +4,7 @@ slime-dict-mahouno-i-land
 
 ## 必要なライブラリのインストール
 
+    % sudo apt-get install mecab-ipadic-utf8 mecab
     % gem install nokogiri
 
 
@@ -20,7 +21,7 @@ dataディレクトリが作成され、中に保存されます
 
 ## 辞書を作成する
 
-    % find data | grep "\/http:" | xargs cat | nkf -u | ruby -Ku make_dict.rb > raw-dict.txt
+    % find data | grep '\/http:' | xargs cat | mecab | ruby -Ku make_dict.rb > raw-dict.txt
     % cat raw-dict.txt | sort | uniq -c | sort -r -n | awk '{print $2 " " $3 " " $4}' > mahouno-i-land-dict.txt
 
 頻出順に並んだ辞書が生成される
